@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-primary-950 text-gray-200 font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer components {
+  .container {
+    @apply px-4 mx-auto max-w-6xl;
+  }
+  
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-70;
+  }
+  
+  .btn-primary {
+    @apply bg-accent-600 text-white hover:bg-accent-700 focus:ring-accent-500;
+  }
+  
+  .btn-secondary {
+    @apply bg-primary-800 text-white hover:bg-primary-700 focus:ring-primary-700;
+  }
+  
+  .btn-outline {
+    @apply border border-gray-700 hover:border-accent-500 hover:text-accent-400 focus:ring-accent-500;
+  }
+  
+  .glass-card {
+    @apply bg-primary-900/40 backdrop-blur-sm border border-primary-800/50 rounded-xl;
+  }
+}
+
+.dot-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.feature-card:hover .feature-icon {
+  @apply text-accent-400 transform scale-110;
+}
+
+.feature-card {
+  @apply relative overflow-hidden transform transition-all duration-300 hover:-translate-y-1;
+}
+
+.feature-card::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-br from-accent-600/5 to-primary-900/0 opacity-0 transition-opacity duration-300;
+}
+
+.feature-card:hover::before {
+  @apply opacity-100;
+}
